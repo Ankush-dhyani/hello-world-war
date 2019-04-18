@@ -23,7 +23,56 @@
 				<artifactId>maven-war-plugin</artifactId>
 				<version>2.1.1</version>
 			</plugin>
+			<!-- Added by Ankush on 18/04 15:25 -->
+		  <plugin>
+               			<artifactId>maven-clean-plugin</artifactId>
+               			<version>2.2</version>
+        	</plugin>
+	    		<plugin>
+               			<artifactId>maven-install-plugin</artifactId>
+               			<version>2.2</version>
+        		</plugin>
 		</plugins>
 	</build>
 
+	 <!--Added on 18/04 15:24 by Ankush -->
+
+  <profiles>
+    <profile>
+      <repositories>
+        <repository>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+          <id>central</id>
+          <name>Jenkins-integration</name>
+          <url>http://ech-10-168-129-177.mastercard.int:8082/artifactory/Jenkins-integration</url>
+        </repository>
+        <repository>
+          <snapshots />
+          <id>snapshots</id>
+          <name>Jenkins-snapshot</name>
+          <url>http://ech-10-168-129-177.mastercard.int:8082/artifactory/Jenkins-snapshot</url>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+          <id>central</id>
+          <name>plugins-release</name>
+          <url>http://ech-10-168-129-177.mastercard.int:8082/artifactory/plugins-release</url>
+        </pluginRepository>
+        <pluginRepository>
+          <snapshots />
+          <id>snapshots</id>
+          <name>plugins-snapshot</name>
+          <url>http://ech-10-168-129-177.mastercard.int:8082/artifactory/plugins-snapshot</url>
+        </pluginRepository>
+      </pluginRepositories>
+      <id>artifactory</id>
+    </profile>
+  </profiles>
+	
 </project>
